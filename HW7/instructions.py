@@ -32,14 +32,14 @@ std6MO = np.std(df6MO['DGS6MO'])
 outliers6MO = df6MO[(df6MO["DGS6MO"] > mean6MO + std6MO) |
                     (df6MO["DGS6MO"] < mean6MO - std6MO)]
 
-# outliers6MO = outliers6MO[(outliers6MO["DGS6MO"] != Nan)]
+outliers6MO = outliers6MO[(outliers6MO["DGS6MO"] != Nan)]
 
 print("-------------df6MO-------------")
-# print("mean : ", mean6MO)
-# print("standard deviation : ", std6MO)
-# print("needs to be above : ", std6MO + mean6MO)
-# print(df6MO.head)
-# print(outliers6MO.head)
+print("mean : ", mean6MO)
+print("standard deviation : ", std6MO)
+print("needs to be above : ", std6MO + mean6MO)
+print(df6MO.head)
+print(outliers6MO.head)
 
 
 ################### 1-Year ###################
@@ -106,7 +106,7 @@ print("------------df10Y-------------")
 joinOne = df6MO.join(df1Y, how='inner')
 joinTwo = joinOne.join(df5Y, how='inner')
 joinThree = joinTwo.join(df10Y, how='inner')
-print(joinThree.head())
+# print(joinThree.head())
 
 
 joinThree.to_csv("sigma.csv")
